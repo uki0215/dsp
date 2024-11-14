@@ -16,7 +16,7 @@
                 @endif
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name" class="form-control-label">Name</label>
+                        <label for="name" class="form-control-label">Нэр</label>
                         <div class="@error('user.name') @enderror">
                             <input class="form-control" value="{{ $user->name }}" type="text" placeholder="name"
                                 id="name" name="name">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="email" class="form-control-label">Email</label>
+                        <label for="email" class="form-control-label">Имэйл</label>
                         <div class="@error('email') @enderror">
                             <input class="form-control" value="{{ $user->email }}" type="email"
                                 placeholder="@example.com" id="email" name="email">
@@ -41,7 +41,7 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="password" class="form-control-label">Password</label>
+                        <label for="password" class="form-control-label">Нууц үг</label>
                         <div class="@error('password') @enderror">
                             <input class="form-control" value="{{ $user->password }}" type="text" placeholder="password"
                                 id="password" name="password">

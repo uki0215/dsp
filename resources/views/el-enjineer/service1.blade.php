@@ -7,7 +7,7 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="d-flex justify-content-between mb-2 card-header pb-0">
-                            <h6>Компьютер бүртгэл</h6>
+                            <h6>Гэмтлийн акт</h6>
                             <div>
                                 <a href="" class="btn bg-gradient-primary btn-sm mb-0"
                                     type="button">+ Акт</a>
