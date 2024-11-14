@@ -30,6 +30,14 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('users.modal.com-reg');
 	})->name('computer');
 
+	Route::get('service-1', function () {
+		return view('el-enjineer.service1');
+	})->name('service-1');
+
+	Route::get('service-2', function () {
+		return view('el-enjineer.service2');
+	})->name('service-2');
+
 	Route::get('billing', function () {
 		return view('billing');
 	})->name('billing');

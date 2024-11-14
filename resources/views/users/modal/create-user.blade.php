@@ -52,10 +52,10 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <a href="{{ route('users') }}" class="btn bg-white mt-4 mb-4" type="submit">cancel</a>
-                        <button type="submit" id="submit" class="btn bg-gradient-primary btn-md mt-4 mb-4">
-                            save
-                        </button>
+                        <div>
+                            <a href="{{ url('users') }}" class="btn bg-gradient-grey btn-sm mb-0">буцах</a>
+                            <button type="submit" id="submit" class="btn bg-gradient-primary btn-sm mt-4 mb-4">Хадгалах</button>
+                        </div>
                     </div>
                 </div>
         </div>

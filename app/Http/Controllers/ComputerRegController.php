@@ -18,24 +18,25 @@ class ComputerRegController extends Controller
     public function createCom()
     {
         $date = now("Asia/Ulaanbaatar")->format('Y-m-d H:i:s');
-        $platform = Agent::platform();
-        $larinfo = Larinfo::getServerInfo();
+        //$platform = Agent::platform();
+        //$larinfo = Larinfo::getServerInfo();
         $softwareInfo = Larinfo::getServerInfoSoftware();
-        $hardwareInfo = json_encode(Larinfo::getServerInfoHardware(),true);;
-        $hardwareInfo = Larinfo::getServerInfoHardware();
-        //dd($hardWareInfo);
+        //$hardwareInfo = json_encode(Larinfo::getServerInfoHardware(),true);
+        //$hardwareInfo = Larinfo::getServerInfoHardware();
+        //dd($hardwareInfo);
         [
-            $os = $softwareInfo['os'],
-            $model = $hardwareInfo['model'],
-            $cpu = $hardwareInfo['cpu'],
-            $cpu_count = $hardwareInfo['cpu_count'],
-            $disk = ($hardwareInfo['disk']),
-            $disk_total = $disk['human_total'],  
-            $ram = $hardwareInfo['ram'],
-            $ram_total = $ram['human_total'],
+            //$os = $softwareInfo['os'],
+            //$model = $hardwareInfo['model'],
+            //$cpu = $hardwareInfo['cpu'],
+            //$cpu_count = $hardwareInfo['cpu_count'],
+            //$disk = $hardwareInfo['disk'],
+            //$disk_total = $disk['human_total'],  
+            //$ram = $hardwareInfo['ram'],
+            //$ram_total = $ram['human_total'],
         ];
+        return view('users.modal.com-reg',compact('softwareInfo','date'));
         
-        return view('users.modal.com-reg',compact('os','model','cpu','cpu_count','disk','disk_total','ram','ram_total','date')); 
+        //return view('users.modal.com-reg',compact('os','model','cpu','cpu_count','disk','ram','date')); 
     }
 
     public function showPrinters(){

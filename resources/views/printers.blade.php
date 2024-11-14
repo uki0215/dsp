@@ -13,26 +13,47 @@
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
+                                <table class="table align-items-center mb-0 border-1">
                                     <thead>
                                         <tr>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Author</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Function</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Status</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Employed</th>
-                                            <th class="text-secondary opacity-7"></th>
+                                                ID</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Эзэмшигч нэр</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Ажлын байршил</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Албан тушаал</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                ҮХ Дугаар</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                УБТЗ дугаар</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Сервис таг</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Загвар</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Төрөл</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Үнэ</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Б/хугацаа</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Авсан огноо</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Шинэчлэгдсэн огноо</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <tr>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                                    </div>
+                                                </div>
+                                            </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div>
@@ -40,26 +61,97 @@
                                                             alt="user1">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">John Michael</h6>
-                                                        <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                                                        <h6 class="mb-0 text-sm">Б.Уламбаяр</h6>
+                                                        <p class="text-xs text-secondary mb-0">admin@admin.com</p>
                                                     </div>
                                                 </div>
                                             </td>
-
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Manager</p>
-                                                <p class="text-xs text-secondary mb-0">Organization</p>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">Удирдах газар</p>
+                                                    </div>
+                                                </div>
                                             </td>
-                                            <td class="align-middle text-center text-sm">
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">НИи ДСП</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">14502369</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <!-- <td class="align-middle text-center text-sm">
                                                 <span class="badge badge-sm bg-gradient-success">Online</span>
+                                            </td> -->
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">JA548799</p>
+                                                    </div>
+                                                </div>
                                             </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">JG8H59L</p>
+                                                    </div>
+                                                </div>
                                             </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">Dell</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">Epson 1390</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">852.000</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">12 сар</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">2025-12-31</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="px-2 py-1">
+                                                    <div class="flex-column justify-content-center">
+                                                        <p class="text-xs font-weight-bold mb-0">2025-12-31</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="" class="mx-1" data-bs-toggle="tooltip" data-bs-original-title="">
+                                                    <i class="fas fa-user-edit text-secondary"></i>
+                                                </a>
+                                                <a href="" class="mx-1" data-bs-toggle="tooltip" data-bs-original-title="">
+                                                    <i class="cursor-pointer fas fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>

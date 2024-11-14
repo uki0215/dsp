@@ -107,14 +107,14 @@
                                                         </td>
 
                                                         <td class="text-center">
-                                                            <a href="{{ route('edit-user', $usr->id) }}" class="mx-3"
+                                                            <a href="{{ route('edit-user', $usr->id) }}" class="mx-1"
                                                                 data-bs-toggle="tooltip" data-bs-original-title="">
                                                                 <i class="fas fa-user-edit text-secondary"></i>
                                                             </a>
                                                             <span>
 
                                                                 <a href="{{ route('destroy-user', $usr->id) }}"
-                                                                    class="mx-3" data-bs-toggle="tooltip"
+                                                                    class="mx-1" data-bs-toggle="tooltip"
                                                                     data-bs-original-title="">
                                                                     <i class="cursor-pointer fas fa-trash"></i>
                                                                 </a>
