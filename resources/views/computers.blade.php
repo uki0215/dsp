@@ -8,11 +8,12 @@
                     <div class="card mb-4">
                         <div class="d-flex justify-content-between mb-2 card-header pb-0">
                             <h6>Компьютер бүртгэл</h6>
-                            @if (auth()->user()->is_admin == 1)
+                            <div>
                                 <a href="#" class="btn bg-gradient-info btn-sm mb-0">Шивэх</a>
-                            @endif
-                            <a href="{{ route('comReg') }}" class="btn bg-gradient-primary btn-sm mb-0"
-                                type="button">Нэмэх</a>
+                                <a href="{{ route('comReg') }}" class="btn bg-gradient-primary btn-sm mb-0"
+                                    type="button">Нэмэх</a>
+                            </div>
+
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
 

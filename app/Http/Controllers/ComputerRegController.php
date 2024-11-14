@@ -21,22 +21,21 @@ class ComputerRegController extends Controller
         $platform = Agent::platform();
         $larinfo = Larinfo::getServerInfo();
         $softwareInfo = Larinfo::getServerInfoSoftware();
-        $hardWareInfo = json_encode(Larinfo::getServerInfoHardware(),true);;
+        $hardwareInfo = json_encode(Larinfo::getServerInfoHardware(),true);;
+        $hardwareInfo = Larinfo::getServerInfoHardware();
         //dd($hardWareInfo);
-        /*
         [
-            //$os = $softwareInfo['os'],
-            $model = $hardWareInfo['model'],
-            $cpu = $hardWareInfo['cpu'],
-            $cpu_count = $hardWareInfo['cpu_count'],
-            $disk = ($hardWareInfo['disk']),
+            $os = $softwareInfo['os'],
+            $model = $hardwareInfo['model'],
+            $cpu = $hardwareInfo['cpu'],
+            $cpu_count = $hardwareInfo['cpu_count'],
+            $disk = ($hardwareInfo['disk']),
             $disk_total = $disk['human_total'],  
-            $ram = $hardWareInfo['ram'],
+            $ram = $hardwareInfo['ram'],
             $ram_total = $ram['human_total'],
         ];
         
-        */
-        return view('users.modal.com-reg',compact('softwareInfo','hardWareInfo','larinfo','date')); 
+        return view('users.modal.com-reg',compact('os','model','cpu','cpu_count','disk','disk_total','ram','ram_total','date')); 
     }
 
     public function showPrinters(){

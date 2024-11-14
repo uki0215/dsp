@@ -105,31 +105,26 @@
                         <div class="form-group">
                             <label for="model" class="form-control-label">Software info</label>
                             <div class="@error('model') @enderror">
-                                @foreach ($softwareInfo as $info)
-                                    <input class="form-control" value="{{ $info }}" disabled type="text"
-                                        id="model" name="model">
-                                    @error('model')
-                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                    @enderror
-                                @endforeach
+                                <input class="form-control" value="{{ $os }}" disabled type="text"
+                                    id="model" name="model">
+                                @error('model')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="model" class="form-control-label">hardwareInfo info</label>
+                            <label for="model" class="form-control-label">CPU</label>
                             <div class="@error('model') @enderror">
-
-                                <input class="form-control" value="{{ $hardWareInfo }}" disabled type="text"
+                                <input class="form-control" value="{{ $cpu }}" disabled type="text"
                                     id="model" name="model">
                                 @error('model')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
-
                             </div>
                         </div>
                     </div>
-
 
                 </div>
             </form>
