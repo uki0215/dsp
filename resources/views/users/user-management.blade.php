@@ -2,17 +2,6 @@
     @extends('layouts.user_type.auth')
 
     @section('content')
-        <div>
-            {{-- <span class="text-white">
-        <div class="alert alert-secondary" role="alert">
-           
-                <strong>Add, Edit, Delete features are not functional!</strong> This is a
-                <strong>PRO</strong> feature! Click <strong>
-                    <a href="https://www.creative-tim.com/live/soft-ui-dashboard-pro-laravel" target="_blank"
-                        class="text-white">here</a></strong>
-                to see the PRO product!
-            </span> 
-    </div> --}}
             @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
                     <span class="alert-text text-white">
@@ -38,90 +27,115 @@
                                 </div>
                                 <div class="card-body px-0 pt-0 pb-2">
                                     <div class="table-responsive p-0">
-                                        <table class="table align-items-center mb-0">
+                                        <table class="table align-items-center mb-0 border-1">
                                             <thead>
                                                 <tr>
-                                                    <th
-                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                         ID
                                                     </th>
-                                                    <th
-                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                        Зураг
-                                                    </th>
-                                                    <th
-                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                         Нэр
                                                     </th>
-                                                    <th
-                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                         И-мэйл
                                                     </th>
-                                                    <th
-                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                        Албаны нэр
+                                                    </th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                        Ажлын байршил
+                                                    </th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                        Албан тушаал
+                                                    </th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                         Ролл
                                                     </th>
-                                                    <th
-                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                         Өдөр
                                                     </th>
-                                                    <th
-                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                         Шинчлэгдсэн
-                                                    </th>
-                                                    <th
-                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($users as $usr)
-                                                    <tr>
-                                                        <td class="ps-4">
-                                                            <p class="text-xs font-weight-bold mb-0">{{ $usr->id }}</p>
-                                                        </td>
-                                                        <td>
-                                                            <div>
-                                                                <img src="../assets/img/team-2.jpg"
-                                                                    class="avatar avatar-sm me-3">
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{ $usr->id }}</p>
                                                             </div>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <p class="text-xs font-weight-bold mb-0">{{ $usr->name }}</p>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <p class="text-xs font-weight-bold mb-0">{{ $usr->email }}</p>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <p class="text-xs font-weight-bold mb-0">{{ $usr->is_admin }}
-                                                            </p>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <span
-                                                                class="text-secondary text-xs font-weight-bold">{{ $usr->created_at }}</span>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <span
-                                                                class="text-secondary text-xs font-weight-bold">{{ $usr->updated_at }}</span>
-                                                        </td>
-
-                                                        <td class="text-center">
-                                                            <a href="{{ route('edit-user', $usr->id) }}" class="mx-1"
-                                                                data-bs-toggle="tooltip" data-bs-original-title="">
-                                                                <i class="fas fa-user-edit text-secondary"></i>
-                                                            </a>
-                                                            <span>
-
-                                                                <a href="{{ route('destroy-user', $usr->id) }}"
-                                                                    class="mx-1" data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="">
-                                                                    <i class="cursor-pointer fas fa-trash"></i>
-                                                                </a>
-
-                                                            </span>
-                                                        </td>
-                                                    </tr>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{ $usr->name }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{ $usr->email }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <!-- <td class="align-middle text-center text-sm">
+                                                        <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                    </td> -->
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{ $usr->orgName }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{ $usr->workplaceName }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{ $usr->positionName }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{ $usr->is_admin }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{$usr->created_at}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="px-2 py-1">
+                                                            <div class="flex-column justify-content-center">
+                                                                <p class="text-xs font-weight-bold mb-0">{{$usr->updated_at}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="" class="mx-1" data-bs-toggle="tooltip" data-bs-original-title="">
+                                                            <i class="fas fa-user-edit text-secondary"></i>
+                                                        </a>
+                                                        <a href="" class="mx-1" data-bs-toggle="tooltip" data-bs-original-title="">
+                                                            <i class="cursor-pointer fas fa-trash"></i>
+                                                        </a>
+                                                    </td>
                                                 @endforeach
                                         </table>
                                     </div>

@@ -14,9 +14,64 @@
                         </button>
                     </div>
                 @endif
+
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="workplaceName" class="form-control-label">Ажлын байршил</label>
+                        <div class="@error('workplaceName') @enderror">
+                            <div class="w-full max-w-sm min-w-[200px]">
+                                <div class="relative">
+                                    <select name="workplaceName" class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                        @foreach ($workplaceName as $wName)
+                                        <option value="{{ $wName->id }}" {{ ( $wName->id ) ? 'selected' : '' }}>
+                                           {{ $wName->workplaceName }}
+                                        </option>
+                                         @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="orgName" class="form-control-label">Албаны нэр</label>
+                        <div class="@error('orgName') @enderror">
+                            <div class="w-full max-w-sm min-w-[200px]">
+                                <div class="relative ">
+                                    <select
+                                        class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                        @foreach ($orgName as $oName)
+                                        <option value="" id="orgName">{{ $oName->orgName }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="positionName" class="form-control-label">Албан тушаал</label>
+                        <div class="@error('positionName') @enderror">
+                            <div class="w-full max-w-sm min-w-[200px]">
+                                <div class="relative ">
+                                    <select
+                                        class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                        @foreach ($positionName as $pName)
+                                        <option value="" id="positionName">{{ $pName->positionName }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label for="name" class="form-control-label">Хэрэглэгчийн нэр</label>
                         <div class="@error('name') @enderror">
                             <input class="form-control" value="" type="text" placeholder="name" id="name"
@@ -27,12 +82,13 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="email" class="form-control-label">Имэйл</label>
                         <div class="@error('email') @enderror">
-                            <input class="form-control" value="" type="email" placeholder="@example.com"
-                                id="email" name="email">
+                            <input class="form-control" value="" type="email" placeholder="email" id="email"
+                                name="email">
                             @error('email')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -44,7 +100,7 @@
                     <div class="form-group">
                         <label for="password" class="form-control-label">Нууц үг</label>
                         <div class="@error('password') @enderror">
-                            <input class="form-control" value="" type="text" placeholder="password" id="password"
+                            <input class="form-control" value="com12345687" type="password" placeholder="password" id="password" disabled
                                 name="password">
                             @error('password')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>

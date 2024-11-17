@@ -33,13 +33,13 @@
                                                 УБТЗ дугаар</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Сервис таг</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Загвар</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Төрөл</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Үнэ</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Б/хугацаа</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Авсан огноо</th>
