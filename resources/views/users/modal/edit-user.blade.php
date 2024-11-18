@@ -103,7 +103,7 @@
                     <div class="form-group">
                         <label for="password" class="form-control-label">Нууц үг</label>
                         <div class="@error('password') @enderror">
-                            <input class="form-control" value="{{ $user->password }}" type="text" placeholder="password"
+                            <input class="form-control" value="{{ $user->password }}" type="password" placeholder="password"
                                 id="password" name="password">
                             @error('password')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>

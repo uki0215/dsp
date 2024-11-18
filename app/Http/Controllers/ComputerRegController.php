@@ -34,9 +34,17 @@ class ComputerRegController extends Controller
             //$ram = $hardwareInfo['ram'],
             //$ram_total = $ram['human_total'],
         ];
-        return view('users.modal.com-reg',compact('softwareInfo','date'));
-        
-        //return view('users.modal.com-reg',compact('os','model','cpu','cpu_count','disk','ram','date')); 
+
+        $orgName = DB::table('organizations')->get();
+        $workplaceName = DB::table('workplace')->get();
+        $positionName = DB::table('position')->get();
+        $brandName = DB::table('brand')->get();
+        $device_type = DB::table('device_type')->get();
+        $sub_device = DB::table('sub_device')->get();
+        $device_mark = DB::table('device_marks')->get();
+
+        return view('users.modal.com-reg',compact('orgName','workplaceName','positionName','brandName','device_type','date','sub_device','device_mark'));
+
     }
 
     public function showPrinters(){
@@ -45,8 +53,9 @@ class ComputerRegController extends Controller
     }
     public function createPrinter(){
 
-        //echo $_SERVER['HTTP_USER_AGENT'] . "\n\n<br>";
+        
         $date = now("Asia/Ulaanbaatar")->format('Y-m-d H:i:s');
+
         return view('users.modal.printer-reg',compact('date'));
     }
 }

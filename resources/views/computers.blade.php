@@ -9,7 +9,6 @@
                         <div class="d-flex justify-content-between mb-2 card-header pb-0">
                             <h6>Компьютер бүртгэл</h6>
                             <div>
-                                <a href="#" class="btn bg-gradient-info btn-sm mb-0">Шивэх</a>
                                 <a href="{{ route('comReg') }}" class="btn bg-gradient-primary btn-sm mb-0"
                                     type="button">Нэмэх</a>
                             </div>

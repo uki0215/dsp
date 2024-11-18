@@ -72,17 +72,19 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="regNumber" class="form-control-label">Ажлын байршил</label>
+                            <label for="regNumber" class="form-control-label">Ангилал</label>
                             <div class="@error('regNumber') @enderror">
 
                                 <div class="w-full max-w-sm min-w-[200px]">
                                     <div class="relative ">
                                         <select
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
-                                            <option value="УБТЗ Удирдах">УБТЗ Удирдах газар</option>
-                                            <option value="УБ өртөө">УБ өртөө</option>
-                                            <option value="Дархан">Дархан</option>
-                                            <option value="Эрдэнэт">Эрдэнэт</option>
+                                            @foreach ($device_type as $dtypeName)
+                                                <option value="{{ $dtypeName->deviceTypeName }}"
+                                                    {{ $dtypeName->deviceTypeName ? 'selected' : '' }}>
+                                                    {{ $dtypeName->deviceTypeName }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -91,30 +93,20 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="regNumber" class="form-control-label">Албан тушаал</label>
-                            <div class="@error('regNumber') @enderror">
-
+                            <label for="orgName" class="form-control-label">Албаны нэр</label>
+                            <div class="@error('orgName') @enderror">
                                 <div class="w-full max-w-sm min-w-[200px]">
                                     <div class="relative ">
-                                        <select
+                                        <select name="orgName"
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
-                                            <option value="Дарга">Дарга</option>
-                                            <option value="Нягтлан">Нягтлан</option>
+                                            @foreach ($orgName as $oName)
+                                                <option value="{{ $oName->orgName }}" {{ $oName->orgName ? 'selected' : '' }}>
+                                                    {{ $oName->orgName }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="regNumber" class="form-control-label">Үнэ</label>
-                            <div class="@error('regNumber') @enderror">
-                                <input class="form-control" value="1,258,000" type="text" id="regNumber"
-                                    name="regNumber">
-                                @error('regNumber')
-                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                @enderror
                             </div>
                         </div>
                     </div>
@@ -127,10 +119,12 @@
                                     <div class="relative ">
                                         <select
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
-                                            <option value="Hp">Hp</option>
-                                            <option value="Canon">Canon</option>
-                                            <option value="Epson">Epson</option>
-                                            <option value="Tank">Tank</option>
+                                            @foreach ($sub_device as $sDeviceName)
+                                                <option value="{{ $sDeviceName->subDeviceName }}"
+                                                    {{ $sDeviceName->subDeviceName ? 'selected' : '' }}>
+                                                    {{ $sDeviceName->subDeviceName }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -139,6 +133,47 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label for="workplaceName" class="form-control-label">Ажлын байршил</label>
+                            <div class="@error('workplaceName') @enderror">
+                                <div class="w-full max-w-sm min-w-[200px]">
+                                    <div class="relative">
+                                        <select name="workplaceName"
+                                            class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                            @foreach ($workplaceName as $wName)
+                                                <option value="{{ $wName->workplaceName }}"
+                                                    {{ $wName->workplaceName ? 'selected' : '' }}>
+                                                    {{ $wName->workplaceName }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="regNumber" class="form-control-label">Марк</label>
+                            <div class="@error('regNumber') @enderror">
+
+                                <div class="w-full max-w-sm min-w-[200px]">
+                                    <div class="relative ">
+                                        <select
+                                            class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                            @foreach ($brandName as $bName)
+                                                <option value="{{ $bName->brandName }}"
+                                                    {{ $bName->brandName ? 'selected' : '' }}>
+                                                    {{ $bName->brandName }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="form-group">
                             <label for="regNumber" class="form-control-label">Загвар</label>
                             <div class="@error('regNumber') @enderror">
 
@@ -146,19 +181,90 @@
                                     <div class="relative ">
                                         <select
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
-                                            <option value="Canon LBP 3010">Canon LBP 3010</option>
-                                            <option value="Epson L210">Epson L210</option>
-                                            <option value="HP DeskJet 3420">HP DeskJet 3420</option>
-                                            <option value="Argon 360">Argon 360</option>
+                                            @foreach ($device_mark as $dMarkName)
+                                                <option value="{{ $dMarkName->markName }}"
+                                                    {{ $dMarkName->markName ? 'selected' : '' }}>
+                                                    {{ $dMarkName->markName }}
+                                                </option>device_mark
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="regNumber" class="form-control-label">HARD диск (gb-аар)</label>
+                            <div class="@error('regNumber') @enderror">
+                                <input class="form-control" value="512" type="text" id="regNumber" name="regNumber">
+                                @error('regNumber')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="regNumber" class="form-control-label">Сар өдөр</label>
+                            <label for="positionName" class="form-control-label">Албан тушаал</label>
+                            <div class="@error('positionName') @enderror">
+                                <div class="w-full max-w-sm min-w-[200px]">
+                                    <div class="relative ">
+                                        <select name="positionName"
+                                            class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                            @foreach ($positionName as $pName)
+                                                <option value="{{ $pName->positionName }}"
+                                                    {{ $pName->positionName ? 'selected' : '' }}>
+                                                    {{ $pName->positionName }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="regNumber" class="form-control-label">RAM диск (gb-аар)</label>
+                            <div class="@error('regNumber') @enderror">
+                                <input class="form-control" value="16" type="text" id="regNumber" name="regNumber">
+                                @error('regNumber')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="regNumber" class="form-control-label">Авсан он сар өдөр</label>
+                            <div class="@error('regNumber') @enderror">
+                                <input class="form-control" value="{{ $date }}" type="text" 
+                                    id="regNumber" name="regNumber">
+                                @error('regNumber')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="regNumber" class="form-control-label">Үнэ</label>
+                            <div class="@error('regNumber') @enderror">
+                                <input class="form-control" value="1,258,000" type="text" id="regNumber"
+                                    name="regNumber">
+                                @error('regNumber')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="regNumber" class="form-control-label">Бүртгэх он сар өдөр</label>
                             <div class="@error('regNumber') @enderror">
                                 <input class="form-control" value="{{ $date }}" type="text" disabled
                                     id="regNumber" name="regNumber">
@@ -168,23 +274,19 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end register information-->
-                    @foreach ($softwareInfo as $info => $s)
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label for="info" class="form-control-label">Software info</label>
-                                <div class="@error('os') @enderror">
-                                    <input class="form-control" value="{{ $s }}" disabled type="text"
-                                        id="info" name="info[]">
-                                    @error('info')
-                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                    @enderror
-                                </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="regNumber" class="form-control-label">Нэмэлт тайлбар</label>
+                            <div class="@error('regNumber') @enderror">
+                                <textarea class="form-control" value="SJ58752" type="text" id="regNumber" name="regNumber"></textarea>
+                                @error('regNumber')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
-                    @endforeach
-
-
+                    </div>
+                    </div>
+                    <!-- end register information-->
                 </div>
             </form>
         </div>
