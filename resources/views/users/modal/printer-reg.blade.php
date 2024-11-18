@@ -38,7 +38,8 @@
                         <div class="form-group">
                             <label for="regNumber" class="form-control-label">УБТЗ дугаар</label>
                             <div class="@error('regNumber') @enderror">
-                                <input class="form-control" value="JA0011202" type="text" id="regNumber" name="regNumber">
+                                <input class="form-control" value="JA0011202" type="text" id="regNumber"
+                                    name="regNumber">
                                 @error('regNumber')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -60,7 +61,8 @@
                         <div class="form-group">
                             <label for="regNumber" class="form-control-label">Эзэмшигчийн нэр</label>
                             <div class="@error('regNumber') @enderror">
-                                <input class="form-control" value="Б.Сийлэгмаа" type="text" id="regNumber" name="regNumber">
+                                <input class="form-control" value="Б.Сийлэгмаа" type="text" id="regNumber"
+                                    name="regNumber">
                                 @error('regNumber')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -107,7 +109,8 @@
                         <div class="form-group">
                             <label for="regNumber" class="form-control-label">Үнэ</label>
                             <div class="@error('regNumber') @enderror">
-                                <input class="form-control" value="1,258,000" type="text" id="regNumber" name="regNumber">
+                                <input class="form-control" value="1,258,000" type="text" id="regNumber"
+                                    name="regNumber">
                                 @error('regNumber')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror

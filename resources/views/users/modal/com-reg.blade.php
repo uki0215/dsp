@@ -6,8 +6,8 @@
             <div class="d-flex flex-row justify-content-between mb-2 pb-0">
                 <h6>Компьютер бүртгэл</h6>
                 <div>
-                <a href="{{ url('computers') }}" class="btn bg-gradient-grey btn-sm mb-0">буцах</a>
-                <button class="btn bg-gradient-primary btn-sm mb-0" type="submit" id="button">Хадгалах</a>
+                    <a href="{{ url('computers') }}" class="btn bg-gradient-grey btn-sm mb-0">буцах</a>
+                    <button class="btn bg-gradient-primary btn-sm mb-0" type="submit" id="button">Хадгалах</a>
                 </div>
             </div>
             <form action="{{ route('comReg') }}" method="POST">
@@ -39,7 +39,8 @@
                         <div class="form-group">
                             <label for="regNumber" class="form-control-label">УБТЗ дугаар</label>
                             <div class="@error('regNumber') @enderror">
-                                <input class="form-control" value="JA0011202" type="text" id="regNumber" name="regNumber">
+                                <input class="form-control" value="JA0011202" type="text" id="regNumber"
+                                    name="regNumber">
                                 @error('regNumber')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -61,7 +62,8 @@
                         <div class="form-group">
                             <label for="regNumber" class="form-control-label">Эзэмшигчийн нэр</label>
                             <div class="@error('regNumber') @enderror">
-                                <input class="form-control" value="Б.Сийлэгмаа" type="text" id="regNumber" name="regNumber">
+                                <input class="form-control" value="Б.Сийлэгмаа" type="text" id="regNumber"
+                                    name="regNumber">
                                 @error('regNumber')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -108,7 +110,8 @@
                         <div class="form-group">
                             <label for="regNumber" class="form-control-label">Үнэ</label>
                             <div class="@error('regNumber') @enderror">
-                                <input class="form-control" value="1,258,000" type="text" id="regNumber" name="regNumber">
+                                <input class="form-control" value="1,258,000" type="text" id="regNumber"
+                                    name="regNumber">
                                 @error('regNumber')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -166,24 +169,22 @@
                         </div>
                     </div>
                     <!-- end register information-->
-                    @foreach($softwareInfo as $info => $s)
-
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="info" class="form-control-label">Software info</label>
-                            <div class="@error('os') @enderror">
-                                <input class="form-control" value="{{ $s }}" disabled type="text"
-                                    id="info" name="info[]">
-                                @error('info')
-                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                @enderror
+                    @foreach ($softwareInfo as $info => $s)
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="info" class="form-control-label">Software info</label>
+                                <div class="@error('os') @enderror">
+                                    <input class="form-control" value="{{ $s }}" disabled type="text"
+                                        id="info" name="info[]">
+                                    @error('info')
+                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
-                    </div>
-
                     @endforeach
 
-                    
+
                 </div>
             </form>
         </div>

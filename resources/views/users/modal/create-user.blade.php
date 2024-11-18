@@ -21,12 +21,13 @@
                         <div class="@error('workplaceName') @enderror">
                             <div class="w-full max-w-sm min-w-[200px]">
                                 <div class="relative">
-                                    <select name="workplaceName" class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                    <select name="workplaceName"
+                                        class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($workplaceName as $wName)
-                                        <option value="{{ $wName->id }}" {{ ( $wName->id ) ? 'selected' : '' }}>
-                                           {{ $wName->workplaceName }}
-                                        </option>
-                                         @endforeach
+                                            <option value="{{ $wName->id }}" {{ $wName->id ? 'selected' : '' }}>
+                                                {{ $wName->workplaceName }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -43,7 +44,7 @@
                                     <select
                                         class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($orgName as $oName)
-                                        <option value="" id="orgName">{{ $oName->orgName }}</option>
+                                            <option value="" id="orgName">{{ $oName->orgName }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -61,7 +62,7 @@
                                     <select
                                         class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($positionName as $pName)
-                                        <option value="" id="positionName">{{ $pName->positionName }}</option>
+                                            <option value="" id="positionName">{{ $pName->positionName }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -100,8 +101,8 @@
                     <div class="form-group">
                         <label for="password" class="form-control-label">Нууц үг</label>
                         <div class="@error('password') @enderror">
-                            <input class="form-control" value="com12345687" type="password" placeholder="password" id="password" disabled
-                                name="password">
+                            <input class="form-control" value="com12345687" type="password" placeholder="password"
+                                id="password" disabled name="password">
                             @error('password')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
@@ -110,7 +111,8 @@
                     <div class="d-flex justify-content-end">
                         <div>
                             <a href="{{ url('users') }}" class="btn bg-gradient-grey btn-sm mb-0">буцах</a>
-                            <button type="submit" id="submit" class="btn bg-gradient-primary btn-sm mt-4 mb-4">Хадгалах</button>
+                            <button type="submit" id="submit"
+                                class="btn bg-gradient-primary btn-sm mt-4 mb-4">Хадгалах</button>
                         </div>
                     </div>
                 </div>

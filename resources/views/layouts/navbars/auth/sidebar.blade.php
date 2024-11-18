@@ -87,8 +87,8 @@
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
-                        class="fa fa-cog fa-lg ps-2 pe-2 text-center text-dark {{ Request::is('service-1') ? 'text-white' : 'text-dark' }} "
-                        aria-hidden="true"></i>
+                            class="fa fa-cog fa-lg ps-2 pe-2 text-center text-dark {{ Request::is('service-1') ? 'text-white' : 'text-dark' }} "
+                            aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">Гэмтлийн акт</span>
                 </a>
@@ -101,8 +101,7 @@
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>document</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF"
-                                    fill-rule="nonzero">
+                                <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                     <g transform="translate(1716.000000, 291.000000)">
                                         <g transform="translate(154.000000, 300.000000)">
                                             <path class="color-background opacity-6"
@@ -128,7 +127,8 @@
                         <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>customer-support</title>
-                            <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
+                                fill-rule="evenodd">
                                 <g id="Rounded-Icons" transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF"
                                     fill-rule="nonzero">
                                     <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
