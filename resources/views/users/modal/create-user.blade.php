@@ -24,7 +24,8 @@
                                     <select name="workplaceName"
                                         class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($workplaceName as $wName)
-                                            <option value="{{ $wName->id }}" {{ $wName->id ? 'selected' : '' }}>
+                                            <option value="{{ $wName->workplaceName }}"
+                                                {{ $wName->workplaceName ? 'selected' : '' }}>
                                                 {{ $wName->workplaceName }}
                                             </option>
                                         @endforeach
@@ -41,10 +42,12 @@
                         <div class="@error('orgName') @enderror">
                             <div class="w-full max-w-sm min-w-[200px]">
                                 <div class="relative ">
-                                    <select
+                                    <select name="orgName"
                                         class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($orgName as $oName)
-                                            <option value="" id="orgName">{{ $oName->orgName }}</option>
+                                            <option value="{{ $oName->orgName }}" {{ $oName->orgName ? 'selected' : '' }}>
+                                                {{ $oName->orgName }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -59,10 +62,13 @@
                         <div class="@error('positionName') @enderror">
                             <div class="w-full max-w-sm min-w-[200px]">
                                 <div class="relative ">
-                                    <select
+                                    <select name="positionName"
                                         class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($positionName as $pName)
-                                            <option value="" id="positionName">{{ $pName->positionName }}</option>
+                                            <option value="{{ $pName->positionName }}"
+                                                {{ $pName->positionName ? 'selected' : '' }}>
+                                                {{ $pName->positionName }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -101,8 +107,8 @@
                     <div class="form-group">
                         <label for="password" class="form-control-label">Нууц үг</label>
                         <div class="@error('password') @enderror">
-                            <input class="form-control" value="com12345687" type="password" placeholder="password"
-                                id="password" disabled name="password">
+                            <input class="form-control" value="$2y$10$JAFrHQvaRAv8yqjDQysoHe/ia1e5ZTXLPbjRck3sWgLNdqflDPVeK"
+                                type="password" placeholder="password" id="password" name="password">
                             @error('password')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror

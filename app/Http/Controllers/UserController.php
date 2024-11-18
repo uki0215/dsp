@@ -33,7 +33,7 @@ class UserController extends Controller
         $workplaceName = DB::table('workplace')->get();
         $orgName = DB::table('organizations')->get();
         $positionName = DB::table('position')->get();
-
+            //dd($positionName);
         $request->validate([
             'workplaceName' => 'required|string',
             'orgName' => 'required|string',
@@ -43,26 +43,33 @@ class UserController extends Controller
             'password' => 'required',
           ]);
             User::create([
-            'workPlaceName' => $request->workplaceName,
+            'workplaceName' => $request->workplaceName,
             'orgName' => $request->orgName, 
-            'positionName' => $request->positionName,  
+            'positionName' => $request->positionName,
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password
           ]);
 
-         return redirect('/users',['orgName',$orgName])->with('success', 'Created successfully user');   
+         return redirect('/users')->with('success', 'Created successfully user');   
     }
 
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users.modal.edit-user',compact('user'));
+        $workplaceName = DB::table('workplace')->get();
+        $orgName = DB::table('organizations')->get();
+        $positionName = DB::table('position')->get();
+        //dd($user);
+        return view('users.modal.edit-user',compact('user','positionName','orgName','workplaceName'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
+            'workplaceName' => 'required|string',
+            'orgName' => 'required|string',
+            'positionName' => 'required|string',
             'name' => 'required|string',
             'email' => 'required|email',
             'password' => 'required',

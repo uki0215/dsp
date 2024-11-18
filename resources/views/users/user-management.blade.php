@@ -96,8 +96,8 @@
                                                         </div>
                                                     </td>
                                                     <!-- <td class="align-middle text-center text-sm">
-                                                            <span class="badge badge-sm bg-gradient-success">Online</span>
-                                                        </td> -->
+                                                                                                                                                <span class="badge badge-sm bg-gradient-success">Online</span>
+                                                                                                                                            </td> -->
                                                     <td class="text-center">
                                                         <div class="px-2 py-1">
                                                             <div class="flex-column justify-content-center">
@@ -147,12 +147,12 @@
                                                         </div>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="" class="mx-1" data-bs-toggle="tooltip"
-                                                            data-bs-original-title="">
+                                                        <a href="/edit-user/{{ $usr->id }}" class="mx-1"
+                                                            data-bs-toggle="tooltip" data-bs-original-title="">
                                                             <i class="fas fa-user-edit text-secondary"></i>
                                                         </a>
-                                                        <a href="" class="mx-1" data-bs-toggle="tooltip"
-                                                            data-bs-original-title="">
+                                                        <a href="/delete-user/{{ $usr->id }}" class="mx-1"
+                                                            data-bs-toggle="tooltip" data-bs-original-title="">
                                                             <i class="cursor-pointer fas fa-trash"></i>
                                                         </a>
                                                     </td>

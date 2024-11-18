@@ -16,6 +16,66 @@
                 @endif
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="workplaceName" class="form-control-label">Ажлын байршил</label>
+                        <div class="@error('workplaceName') @enderror">
+                            <div class="w-full max-w-sm min-w-[200px]">
+                                <div class="relative">
+                                    <select name="workplaceName"
+                                        class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                        @foreach ($workplaceName as $wName)
+                                            <option value="{{ $wName->workplaceName }}"
+                                                {{ $wName->workplaceName ? 'selected' : '' }}>
+                                                {{ $wName->workplaceName }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="orgName" class="form-control-label">Албаны нэр</label>
+                        <div class="@error('orgName') @enderror">
+                            <div class="w-full max-w-sm min-w-[200px]">
+                                <div class="relative ">
+                                    <select name="orgName"
+                                        class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                        @foreach ($orgName as $oName)
+                                            <option value="{{ $oName->orgName }}" {{ $oName->orgName ? 'selected' : '' }}>
+                                                {{ $oName->orgName }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="positionName" class="form-control-label">Албан тушаал</label>
+                        <div class="@error('positionName') @enderror">
+                            <div class="w-full max-w-sm min-w-[200px]">
+                                <div class="relative ">
+                                    <select name="positionName"
+                                        class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
+                                        @foreach ($positionName as $pName)
+                                            <option value="{{ $pName->positionName }}" {{ $pName->id ? 'selected' : '' }}>
+                                                {{ $pName->positionName }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label for="name" class="form-control-label">Нэр</label>
                         <div class="@error('user.name') @enderror">
                             <input class="form-control" value="{{ $user->name }}" type="text" placeholder="name"
