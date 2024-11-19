@@ -39,8 +39,6 @@
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Үнэ</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Б/хугацаа</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Авсан огноо</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Шинэчлэгдсэн огноо</th>

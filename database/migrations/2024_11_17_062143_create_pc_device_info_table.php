@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('serviceTag')->unique();
             $table->string('brand');
             $table->string('mark');
+            $table->string('subDevice');
+            $table->string('deviceType');
             $table->string('orgName');
             $table->string('workplaceName');
             $table->string('positionName');
@@ -28,6 +30,7 @@ return new class extends Migration
             $table->string('hard');
             $table->string('price');
             $table->date('buyedDate');
+            $table->string('comment');
             $table->timestamps();
         });
     }

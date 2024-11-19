@@ -70,8 +70,8 @@ Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('destr
 
 	//computer register controllers
 	Route::get('computers', [ComputerRegController::class, 'showComs'])->name('createCom');
-	Route::get('/computer-register', [ComputerRegController::class, 'createCom'])->name('comReg');
-	Route::post('/com-register', [ComputerRegController::class, 'storeCom'])->name('storeCom');
+	Route::get('/computer-register', [ComputerRegController::class, 'create'])->name('comReg');
+	Route::post('/computer-register', [ComputerRegController::class, 'store'])->name('store-com');
 
 	//printer register controllers
 	Route::get('printers', [ComputerRegController::class, 'showPrinters'])->name('showPrinters');

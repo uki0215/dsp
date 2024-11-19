@@ -23,7 +23,7 @@ class UserController extends Controller
         $orgName = DB::table('organizations')->get();
         $workplaceName = DB::table('workplace')->get();
         $positionName = DB::table('position')->get();
-        //dd($positionName);
+
         return view('users.modal.create-user', compact('orgName','workplaceName','positionName'));
     }
 
@@ -33,7 +33,7 @@ class UserController extends Controller
         $workplaceName = DB::table('workplace')->get();
         $orgName = DB::table('organizations')->get();
         $positionName = DB::table('position')->get();
-            //dd($positionName);
+
         $request->validate([
             'workplaceName' => 'required|string',
             'orgName' => 'required|string',
