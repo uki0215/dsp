@@ -1,17 +1,17 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-<form action="{{ route('store-com') }}" method="POST">
-    <div class="card mb-4">
-        <div class="card-body pt-4 p-3">
-            <div class="d-flex flex-row justify-content-between mb-2 pb-0">
-                <h6>Компьютер бүртгэл</h6>
-                <div>
-                    <a href="{{ url('computers') }}" class="btn bg-gradient-grey btn-sm mb-0">буцах</a>
-                    <button class="btn bg-gradient-primary btn-sm mb-0" type="submit" id="submit">Хадгалах</a>
+    <form action="{{ route('store-com') }}" method="POST">
+        <div class="card mb-4">
+            <div class="card-body pt-4 p-3">
+                <div class="d-flex flex-row justify-content-between mb-2 pb-0">
+                    <h6>Компьютер бүртгэл</h6>
+                    <div>
+                        <a href="{{ url('computers') }}" class="btn bg-gradient-grey btn-sm mb-0">буцах</a>
+                        <button class="btn bg-gradient-primary btn-sm mb-0" type="submit" id="submit">Хадгалах</a>
+                    </div>
                 </div>
-            </div>
-            @csrf
+                @csrf
                 @if ($errors->any())
                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
                         <span class="alert-text text-white">
@@ -25,7 +25,7 @@
                     <!-- user information and pc information register-->
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="regNum" class="form-control-label">Үндсэн хөрөнгийн дугаар</label>
+                            <label for="regNum" class="form-control-label">ҮХ дугаар</label>
                             <div class="@error('regNum') @enderror">
                                 <input class="form-control" value="15000356" type="text" id="regNum" name="regNum">
                                 @error('regNum')
@@ -38,8 +38,7 @@
                         <div class="form-group">
                             <label for="ubtzNum" class="form-control-label">УБТЗ дугаар</label>
                             <div class="@error('ubtzNum') @enderror">
-                                <input class="form-control" value="JA0011202" type="text" id="ubtzNum"
-                                    name="ubtzNum">
+                                <input class="form-control" value="JA0011202" type="text" id="ubtzNum" name="ubtzNum">
                                 @error('ubtzNum')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -50,7 +49,8 @@
                         <div class="form-group">
                             <label for="serviceTag" class="form-control-label">Сервис таг</label>
                             <div class="@error('serviceTag') @enderror">
-                                <input class="form-control" value="SJ58752" type="text" id="serviceTag" name="serviceTag">
+                                <input class="form-control" value="SJ58752" type="text" id="serviceTag"
+                                    name="serviceTag">
                                 @error('serviceTag')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -119,11 +119,11 @@
                                     <div class="relative ">
                                         <select name="osType"
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
-                                                <option value="Windows XP">Windows XP</option>
-                                                <option value="Windows 7">Windows 7</option>
-                                                <option value="Windows 8">Windows 8</option>
-                                                <option value="Windows 10">Windows 10</option>
-                                                <option value=">Windows 11">Windows 11</option>
+                                            <option value="Windows XP">Windows XP</option>
+                                            <option value="Windows 7">Windows 7</option>
+                                            <option value="Windows 8">Windows 8</option>
+                                            <option value="Windows 10">Windows 10</option>
+                                            <option value="Windows 11">Windows 11</option>
                                         </select>
                                     </div>
                                 </div>
@@ -139,7 +139,8 @@
                                         <select name="orgName"
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                             @foreach ($orgName as $oName)
-                                                <option value="{{ $oName->orgName }}" {{ $oName->orgName ? 'selected' : '' }}>
+                                                <option value="{{ $oName->orgName }}"
+                                                    {{ $oName->orgName ? 'selected' : '' }}>
                                                     {{ $oName->orgName }}
                                                 </option>
                                             @endforeach
@@ -149,8 +150,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="brand" class="form-control-label">Марк</label>
@@ -173,7 +174,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                    <div class="form-group">
+                        <div class="form-group">
                             <label for="mark" class="form-control-label">Загвар</label>
                             <div class="@error('regNumber') @enderror">
 
@@ -193,12 +194,13 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="cpu" class="form-control-label">CPU</label>
                             <div class="@error('hard') @enderror">
-                                <input class="form-control" value="i7 5600 " type="text" id="cpu" name="cpu">
+                                <input class="form-control" value="i7 5600 " type="text" id="cpu"
+                                    name="cpu">
                                 @error('cpu')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -229,34 +231,36 @@
                         <div class="form-group">
                             <label for="hard" class="form-control-label">HARD диск (gb-аар)</label>
                             <div class="@error('hard') @enderror">
-                                <input class="form-control" value="512" type="text" id="hard" name="hard">
+                                <input class="form-control" value="512" type="text" id="hard"
+                                    name="hard">
                                 @error('hard')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="ram" class="form-control-label">RAM диск (gb-аар)</label>
                             <div class="@error('ram') @enderror">
-                                <input class="form-control" value="16" type="text" id="ram" name="ram">
+                                <input class="form-control" value="16" type="text" id="ram"
+                                    name="ram">
                                 @error('ram')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="buyedDate" class="form-control-label">Авсан он сар өдөр</label>
                             <div class="@error('buyedDate') @enderror">
-                                <input class="form-control" value="{{ $date }}" type="text" 
-                                    id="buyedDate" name="buyedDate">
+                                <input class="form-control" value="{{ $date }}" type="text" id="buyedDate"
+                                    name="buyedDate">
                                 @error('buyedDate')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
@@ -296,7 +300,7 @@
                         </div>
                     </div>
 
-                        
+
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="created_at" class="form-control-label">Бүртгэх он сар өдөр</label>
@@ -320,12 +324,12 @@
                             </div>
                         </div>
                     </div>
-                    
-                    </div>
-                    
-                    <!-- end register information-->
+
                 </div>
-            </form>
-        </div>
+
+                <!-- end register information-->
+            </div>
+    </form>
+    </div>
     </div>
 @endsection

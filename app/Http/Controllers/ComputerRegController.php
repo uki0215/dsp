@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\pcInfo;
 use Jenssegers\Agent\Facades\Agent;
-use Response;
-use Larinfo;
+// use Response;
+// use Larinfo;
 use DateTime;
 
 class ComputerRegController extends Controller
 {
     public function showComs(){
 
-        $pcinfo = pcInfo::all();
-        dd($pcinfo);
-        return view('computers');
+        $pcinfo = DB::table('pc_device_info')->get();
+        $pcinfoJson = json_decode($pcinfo);
+        return view('computers',compact('pcinfoJson'));
     }
     public function create()
     {

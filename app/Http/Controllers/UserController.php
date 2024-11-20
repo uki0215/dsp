@@ -60,7 +60,7 @@ class UserController extends Controller
         $workplaceName = DB::table('workplace')->get();
         $orgName = DB::table('organizations')->get();
         $positionName = DB::table('position')->get();
-        //dd($user);
+
         return view('users.modal.edit-user',compact('user','positionName','orgName','workplaceName'));
     }
 
@@ -74,18 +74,11 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
           ]);
+          
           $user = User::find($id);
           $user->update($request->all());
-          
-          /*$user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password
-          ]);
-          */
 
           return redirect('/users')->with('success', 'User updated successfully');
-
     }
     public function destroy($id)
     {

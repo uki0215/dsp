@@ -95,9 +95,6 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <!-- <td class="align-middle text-center text-sm">
-                                                                                                                                                <span class="badge badge-sm bg-gradient-success">Online</span>
-                                                                                                                                            </td> -->
                                                     <td class="text-center">
                                                         <div class="px-2 py-1">
                                                             <div class="flex-column justify-content-center">
@@ -156,6 +153,8 @@
                                                             <i class="cursor-pointer fas fa-trash"></i>
                                                         </a>
                                                     </td>
+
+                                                </tr>
                                             @endforeach
                                     </table>
                                 </div>

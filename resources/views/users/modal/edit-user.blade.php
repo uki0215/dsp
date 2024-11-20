@@ -24,10 +24,11 @@
                                         class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($workplaceName as $wName)
                                             <option value="{{ $wName->workplaceName }}"
-                                                {{ $wName->workplaceName ? 'selected' : '' }}>
+                                                {{ $user->workplaceName == $wName->workplaceName ? 'selected' : '' }}>
                                                 {{ $wName->workplaceName }}
                                             </option>
                                         @endforeach
+
                                     </select>
                                 </div>
                             </div>
@@ -44,7 +45,8 @@
                                     <select name="orgName"
                                         class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($orgName as $oName)
-                                            <option value="{{ $oName->orgName }}" {{ $oName->orgName ? 'selected' : '' }}>
+                                            <option value="{{ $oName->orgName }}"
+                                                {{ $user->orgName == $oName->orgName ? 'selected' : '' }}>
                                                 {{ $oName->orgName }}
                                             </option>
                                         @endforeach
@@ -64,7 +66,8 @@
                                     <select name="positionName"
                                         class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                         @foreach ($positionName as $pName)
-                                            <option value="{{ $pName->positionName }}" {{ $pName->id ? 'selected' : '' }}>
+                                            <option value="{{ $pName->positionName }}"
+                                                {{ $user->positionName == $pName->positionName ? 'selected' : '' }}>
                                                 {{ $pName->positionName }}
                                             </option>
                                         @endforeach
@@ -103,8 +106,8 @@
                     <div class="form-group">
                         <label for="password" class="form-control-label">Нууц үг</label>
                         <div class="@error('password') @enderror">
-                            <input class="form-control" value="{{ $user->password }}" type="password" placeholder="password"
-                                id="password" name="password">
+                            <input class="form-control" value="" type="password" placeholder="password" id="password"
+                                name="password">
                             @error('password')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
