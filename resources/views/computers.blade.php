@@ -57,6 +57,8 @@
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Авсан огноо</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Тайлбар</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Бүртгэсэн огноо</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Шинэчлэгдсэн огноо</th>
@@ -232,6 +234,15 @@
                                                     <div class="px-2 py-1">
                                                         <div class="flex-column justify-content-center">
                                                             <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->comment }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
                                                                 {{ $pcinfo->created_at }}
                                                             </p>
                                                         </div>
@@ -247,12 +258,12 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="" class="mx-1" data-bs-toggle="tooltip"
-                                                        data-bs-original-title="">
+                                                    <a href="/computer-edit/{{ $pcinfo->id }}" class="mx-1"
+                                                        data-bs-toggle="tooltip" data-bs-original-title="">
                                                         <i class="fas fa-user-edit text-secondary"></i>
                                                     </a>
-                                                    <a href="" class="mx-1" data-bs-toggle="tooltip"
-                                                        data-bs-original-title="">
+                                                    <a href="/delete-pcinfo/{{ $pcinfo->id }}" class="mx-1"
+                                                        data-bs-toggle="tooltip" data-bs-original-title="">
                                                         <i class="cursor-pointer fas fa-trash"></i>
                                                     </a>
                                                 </td>

@@ -60,7 +60,6 @@ class UserController extends Controller
         $workplaceName = DB::table('workplace')->get();
         $orgName = DB::table('organizations')->get();
         $positionName = DB::table('position')->get();
-
         return view('users.modal.edit-user',compact('user','positionName','orgName','workplaceName'));
     }
 

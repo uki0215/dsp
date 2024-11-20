@@ -56,15 +56,12 @@ Route::get('/login', [AuthController::class, 'login']);
 	Route::post('/user-profile', [InfoUserController::class, 'store']);
 
 	Route::get('/users', [UserController::class, 'showUsers'])->name('users');
-
 		//create user controller 
 	Route::get('/create-user', [UserController::class, 'create'])->name('create-user');
 	Route::post('/create-user', [UserController::class, 'store'])->name('store-user');
-
 //update user controller 
 Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('edit-user');
 Route::post('/update-user/{id}', [UserController::class, 'update'])->name('update-user');
-
 //delete user controller
 Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('destroy-user');
 
@@ -72,6 +69,12 @@ Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('destr
 	Route::get('computers', [ComputerRegController::class, 'showComs'])->name('createCom');
 	Route::get('/computer-register', [ComputerRegController::class, 'create'])->name('comReg');
 	Route::post('/computer-register', [ComputerRegController::class, 'store'])->name('store-com');
+	//update computer info
+	Route::get('/computer-edit/{id}', [ComputerRegController::class, 'edit'])->name('editCom');
+	Route::post('/computer-update/{id}', [ComputerRegController::class, 'update'])->name('updateCom');
+//delete computer info
+	Route::get('/delete-pcinfo/{id}', [ComputerRegController::class, 'destroy'])->name('destroyCom');
+
 
 	//printer register controllers
 	Route::get('printers', [ComputerRegController::class, 'showPrinters'])->name('showPrinters');

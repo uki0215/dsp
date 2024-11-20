@@ -16,8 +16,9 @@ class ComputerRegController extends Controller
 {
     public function showComs(){
 
-        $pcinfo = DB::table('pc_device_info')->get();
+        $pcinfo = pcinfo::all();
         $pcinfoJson = json_decode($pcinfo);
+
         return view('computers',compact('pcinfoJson'));
     }
     public function create()
@@ -85,6 +86,42 @@ class ComputerRegController extends Controller
 
           return redirect('/computers')->with('success', 'Created successfully computers info');   
     }
+    public function edit($id){
+        $date = now("Asia/Ulaanbaatar")->format('Y-m-d');
+        $devicePcInfo = pcinfo::find($id);
+        $workplaceName = DB::table('workplace')->get();
+        $orgName = DB::table('organizations')->get();
+        $positionName = DB::table('position')->get();
+        $brandName = DB::table('brand')->get();
+        $device_type = DB::table('device_type')->get();
+        $sub_device = DB::table('sub_device')->get();
+        $device_mark = DB::table('device_marks')->get();
+
+        return view('users.modal.com-update',compact('devicePcInfo','workplaceName','orgName','positionName','brandName','device_type','sub_device','device_mark','date'));
+    }
+
+
+    public function update(Request $request, $id){
+
+        $pcinfo = pcinfo::find($id);
+        $pcinfo->update($request->all());
+
+        return redirect('/computers')->with('success', 'User updated successfully');
+    }
+
+
+    public function destroy($id)
+    {
+        $pcinfo = pcinfo::find($id);
+        $pcinfo->delete();
+
+        return redirect('/computers')->with('success', 'User deleted successfully');
+    }
+
+
+
+
+
 
     public function showPrinters(){
         
