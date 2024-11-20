@@ -14,16 +14,17 @@ use DateTime;
 
 class ComputerRegController extends Controller
 {
-    public function showComs(){
+    public function showComs()
+    {
 
-        $pcinfo = pcinfo::all();
-        $pcinfoJson = json_decode($pcinfo);
+        $pcinfoJson = pcinfo::all();
 
         return view('computers',compact('pcinfoJson'));
     }
     public function create()
     {
-        $date = now("Asia/Ulaanbaatar")->format('Y-m-d H:i:s');
+
+        $date = now();
         $orgName = DB::table('organizations')->get();
         $workplaceName = DB::table('workplace')->get();
         $positionName = DB::table('position')->get();
@@ -36,7 +37,8 @@ class ComputerRegController extends Controller
 
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $request->validate([
             'orgName' => 'required|string',
@@ -59,9 +61,9 @@ class ComputerRegController extends Controller
 
           ]);
 
-          $pcInfo = new pcInfo();
+        $pcInfo = new pcInfo();
 
-          $pcInfo->fill([
+        $pcInfo->fill([
             'orgName' => $request->get('orgName'),
             'positionName' => $request->get('positionName'),
             'workplaceName' => $request->get('workplaceName'),
@@ -80,13 +82,16 @@ class ComputerRegController extends Controller
             'price' => $request->get('price'),
             'buyedDate' => $request->get('buyedDate'),
             'comment' => $request->get('comment'),
-          ]);
+        ]);
 
-          $pcInfo->save();
+        $pcInfo->save();
 
-          return redirect('/computers')->with('success', 'Created successfully computers info');   
+        return redirect('/computers')->with('success', 'Created successfully computers info');   
     }
-    public function edit($id){
+
+    public function edit($id)
+    {
+
         $date = now("Asia/Ulaanbaatar")->format('Y-m-d');
         $devicePcInfo = pcinfo::find($id);
         $workplaceName = DB::table('workplace')->get();
@@ -101,7 +106,8 @@ class ComputerRegController extends Controller
     }
 
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
 
         $pcinfo = pcinfo::find($id);
         $pcinfo->update($request->all());
@@ -123,15 +129,15 @@ class ComputerRegController extends Controller
 
 
 
-    public function showPrinters(){
+    public function showPrinters()
+    {
         
         return view('printers');
     }
-    public function createPrinter(){
+    public function createPrinter()
+    {
 
-        
         $date = now("Asia/Ulaanbaatar")->format('Y-m-d H:i:s');
-
         return view('users.modal.printer-reg',compact('date'));
     }
 }

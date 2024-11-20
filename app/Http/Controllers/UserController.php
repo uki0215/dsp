@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Organization;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
 
     public function showUsers(Request $request)
     {
+
         $users = DB::table('users')->get();
         $count = DB::table('users')->count();
 
@@ -20,6 +22,7 @@ class UserController extends Controller
 
     public function create()
     {
+
         $orgName = DB::table('organizations')->get();
         $workplaceName = DB::table('workplace')->get();
         $positionName = DB::table('position')->get();
@@ -28,7 +31,7 @@ class UserController extends Controller
     }
 
     public function store(Request $request)
-        {
+    {
 
         $workplaceName = DB::table('workplace')->get();
         $orgName = DB::table('organizations')->get();
@@ -56,15 +59,18 @@ class UserController extends Controller
 
     public function edit($id)
     {
+
         $user = User::find($id);
         $workplaceName = DB::table('workplace')->get();
         $orgName = DB::table('organizations')->get();
         $positionName = DB::table('position')->get();
+
         return view('users.modal.edit-user',compact('user','positionName','orgName','workplaceName'));
     }
 
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'workplaceName' => 'required|string',
             'orgName' => 'required|string',
@@ -73,14 +79,24 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
           ]);
+        $hashpassword = Hash::make($request->password);
+        $user = User::find($id);
           
-          $user = User::find($id);
-          $user->update($request->all());
+        $request->user()->fill([
+            'workplaceName' => $request->workplaceName,
+            'orgName' => $request->orgName,
+            'positionName' => $request->positionName,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ])->save();
 
-          return redirect('/users')->with('success', 'User updated successfully');
+        return redirect('/users')->with('success', 'User updated successfully');
     }
+
     public function destroy($id)
     {
+        
         $user = User::find($id);
         $user->delete();
 

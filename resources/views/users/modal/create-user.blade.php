@@ -118,7 +118,7 @@
                         <div>
                             <a href="{{ url('users') }}" class="btn bg-gradient-grey btn-sm mb-0">буцах</a>
                             <button type="submit" id="submit"
-                                class="btn bg-gradient-primary btn-sm mt-4 mb-4">Хадгалах</button>
+                                class="btn bg-gradient-primary btn-sm mt-4 mb-4">Нэмэх</button>
                         </div>
                     </div>
                 </div>
