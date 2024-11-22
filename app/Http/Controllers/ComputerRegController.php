@@ -25,6 +25,7 @@ class ComputerRegController extends Controller
     {
 
         $date = now();
+        
         $orgName = DB::table('organizations')->get();
         $workplaceName = DB::table('workplace')->get();
         $positionName = DB::table('position')->get();

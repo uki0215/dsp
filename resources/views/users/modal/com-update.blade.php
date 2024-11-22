@@ -83,7 +83,7 @@
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                             @foreach ($device_type as $dtypeName)
                                                 <option value="{{ $dtypeName->deviceTypeName }}"
-                                                    {{ $dtypeName->deviceTypeName ? 'selected' : '' }}>
+                                                    {{ $dtypeName->deviceTypeName == $devicePcInfo->deviceType ? 'selected' : '' }}>
                                                     {{ $dtypeName->deviceTypeName }}
                                                 </option>
                                             @endforeach
@@ -104,7 +104,7 @@
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                             @foreach ($sub_device as $sDeviceName)
                                                 <option value="{{ $sDeviceName->subDeviceName }}"
-                                                    {{ $sDeviceName->subDeviceName ? 'selected' : '' }}>
+                                                    {{ $sDeviceName->subDeviceName == $devicePcInfo->subDevice ? 'selected' : '' }}>
                                                     {{ $sDeviceName->subDeviceName }}
                                                 </option>
                                             @endforeach
@@ -143,7 +143,7 @@
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                             @foreach ($orgName as $oName)
                                                 <option value="{{ $oName->orgName }}"
-                                                    {{ $oName->orgName ? 'selected' : '' }}>
+                                                    {{ $oName->orgName == $devicePcInfo->orgName ? 'selected' : '' }}>
                                                     {{ $oName->orgName }}
                                                 </option>
                                             @endforeach
@@ -166,7 +166,7 @@
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                             @foreach ($brandName as $bName)
                                                 <option value="{{ $bName->brandName }}"
-                                                    {{ $bName->brandName ? 'selected' : '' }}>
+                                                    {{ $bName->brandName == $devicePcInfo->brand ? 'selected' : '' }}>
                                                     {{ $bName->brandName }}
                                                 </option>
                                             @endforeach
@@ -187,7 +187,7 @@
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                             @foreach ($device_mark as $dMarkName)
                                                 <option value="{{ $dMarkName->markName }}"
-                                                    {{ $dMarkName->markName ? 'selected' : '' }}>
+                                                    {{ $dMarkName->markName == $devicePcInfo->mark ? 'selected' : '' }}>
                                                     {{ $dMarkName->markName }}
                                                 </option>
                                             @endforeach
@@ -220,7 +220,7 @@
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                             @foreach ($positionName as $pName)
                                                 <option value="{{ $pName->positionName }}"
-                                                    {{ $pName->positionName ? 'selected' : '' }}>
+                                                    {{ $pName->positionName == $devicePcInfo->positionName ? 'selected' : '' }}>
                                                     {{ $pName->positionName }}
                                                 </option>
                                             @endforeach
@@ -280,7 +280,7 @@
                                             class="form-control w-full border-slate-200 pl-3 pr-8 py-2 transition duration-300 ease appearance-none cursor-pointer">
                                             @foreach ($workplaceName as $wName)
                                                 <option value="{{ $wName->workplaceName }}"
-                                                    {{ $wName->workplaceName ? 'selected' : '' }}>
+                                                    {{ $wName->workplaceName == $devicePcInfo->workplaceName ? 'selected' : '' }}>
                                                     {{ $wName->workplaceName }}
                                                 </option>
                                             @endforeach

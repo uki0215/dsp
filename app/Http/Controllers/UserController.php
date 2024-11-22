@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Organization;
 use Illuminate\Support\Facades\Hash;
+use DataTables;
 
 class UserController extends Controller
 {
 
     public function showUsers(Request $request)
     {
-
         $users = DB::table('users')->get();
         $count = DB::table('users')->count();
 
