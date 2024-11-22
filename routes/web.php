@@ -73,7 +73,7 @@ Route::get('/delete-user/{id}', [UserController::class, 'destroy'])->name('destr
 	Route::get('/computer-edit/{id}', [ComputerRegController::class, 'edit'])->name('editCom');
 	Route::post('/computer-update/{id}', [ComputerRegController::class, 'update'])->name('updateCom');
 //delete computer info
-	Route::get('/delete-pcinfo/{id}', [ComputerRegController::class, 'destroy'])->name('destroyCom');
+	Route::delete('/delete-pcinfo/{id}', [ComputerRegController::class, 'destroy'])->name('destroyCom');
 
 
 	//printer register controllers

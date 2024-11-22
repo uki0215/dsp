@@ -15,6 +15,7 @@
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
+                             
                                 <table class="table align-items-center mb-0 border-1">
                                     <thead>
                                         <tr>
@@ -67,7 +68,7 @@
 
                                     <tbody>
                                         @foreach ($pcinfoJson as $pcinfo)
-                                            <tr>
+                                            <tr id="tr_{{$pcinfo->id}}">
                                                 <td>
                                                     <div class="d-flex px-2 py-1">
                                                         <div>
@@ -88,7 +89,7 @@
                                                 <td class="text-center">
                                                     <div class="px-2 py-1">
                                                         <div class="flex-column justify-content-center">
-                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->id }}</p>
+                                                            <p class="text-xs font-weight-bold mb-0" name="pcInfoId">{{ $pcinfo->id }}</p>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -259,19 +260,21 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <a href="/computer-edit/{{ $pcinfo->id }}" class="mx-1"
-                                                        data-bs-toggle="tooltip" data-bs-original-title="">
+                                                        data-bs-toggle="tooltip">
                                                         <i class="fas fa-user-edit text-secondary"></i>
                                                     </a>
-                                                    <a href="/delete-pcinfo/{{ $pcinfo->id }}" class="mx-1"
-                                                        data-bs-toggle="tooltip" data-bs-original-title="">
+                                                  
+                            
+                                                        <a href="javascript:void(0)" onclick="deleteInfo({{$pcinfo->id}})" class="mx-1 " 
+                                                        data-bs-toggle="tooltip">
                                                         <i class="cursor-pointer fas fa-trash"></i>
                                                     </a>
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -280,3 +283,32 @@
         </div>
     </main>
 @endsection
+
+
+
+<script type="text/javascript">
+
+    function deleteInfo(id)
+    {
+        if(confirm('Та үүнийг устгахдаа итгэлтэй байна уу?'))
+        {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url:'/delete-pcinfo/'+id,
+                type:'delete',
+                success:function(result) 
+                {
+                    $("#"+result['tr']).slideUp("slow");
+                }
+            });
+        }
+    }
+
+</script>
+

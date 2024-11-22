@@ -17,7 +17,7 @@ class ComputerRegController extends Controller
     public function showComs()
     {
 
-        $pcinfoJson = pcinfo::all();
+        $pcinfoJson = pcInfo::all();
 
         return view('computers',compact('pcinfoJson'));
     }
@@ -119,10 +119,20 @@ class ComputerRegController extends Controller
 
     public function destroy($id)
     {
+        /*
         $pcinfo = pcinfo::find($id);
         $pcinfo->delete();
 
         return redirect('/computers')->with('success', 'User deleted successfully');
+        */
+
+        $pcinfo = pcInfo::find($id);
+
+        $pcinfo->delete();
+        
+        return response()->json([
+            'success'=>true, 'tr'=>'tr_'.$id,
+        ]);
     }
 
 
