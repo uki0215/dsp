@@ -304,7 +304,7 @@
                 type:'delete',
                 success:function(result) 
                 {
-                    $("#"+result['tr']).slideUp("slow");
+                    $("#"+result['tr']).slideUp("fast");
                 }
             });
         }
