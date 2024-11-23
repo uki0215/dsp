@@ -16,22 +16,20 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card mb-4">
-                            <div class="card-header pb-0">
-                                <div class="d-flex justify-content-between mb-2 pb-0">
-                                    <h6>Бүртгэгдсэн хэрэглэгчид:
-                                        <span class="text-danger font-weight-bolder">{{ $count }}</span>
-                                    </h6>
-                                    <a href="{{ route('create-user') }}" class="btn bg-gradient-primary btn-sm mb-0"
-                                        type="button">Нэмэх</a>
+                                <div class="d-flex justify-content-between mb-2 card-header pb-0">
+                                    <h6>Бүртгэгдсэн хэрэглэгчид: <span class="text-danger font-weight-bolder">{{ $count }}</span> </h6>
+                                    <div>
+                                        <a href="{{ route('create-user') }}" class="btn bg-gradient-primary btn-sm mb-0"
+                                            type="button">Нэмэх</a>
+                                    </div>
                                 </div>
-                            </div>
                             <div class="card-body px-0 pt-0 pb-2">
                                 <div class="table-responsive p-0">
-                                    <table class="table align-items-center mb-0 border-1" id="myTable">
+                                    <table class="table align-items-center mb-0 border-1">
                                         <thead>
                                             <tr>
                                                 <th
-                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
                                                     ID
                                                 </th>
                                                 <th
@@ -65,12 +63,6 @@
                                                 <th
                                                     class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                     Шинчлэгдсэн
-                                                </th>
-                                                <th
-                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                </th>
-                                                <th
-                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 </th>
                                             </tr>
                                         </thead>

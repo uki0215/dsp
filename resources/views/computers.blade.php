@@ -67,29 +67,25 @@
                                     </thead>
 
                                     <tbody>
+                                    
                                         @foreach ($pcinfoJson as $pcinfo)
+                                        @if(auth()->user()->id == $pcinfo->uid && auth()->user()->is_admin == 0 )
                                             <tr id="tr_{{$pcinfo->id}}">
                                                 <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div>
-                                                            <img src="../assets/img/team-3.jpg"
-                                                                class="avatar avatar-sm me-3" alt="user1">
-                                                        </div>
+                                                    <div class="d-flex px-4 py-1">
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            @if (auth()->user()->name)
-                                                                <h6 class="mb-0 text-sm">{{ auth()->user()->name }}
+                                                                <h6 class="mb-0 text-sm">{{auth()->user()->name }}
                                                                 </h6>
                                                                 <p class="text-xs text-secondary mb-0">
                                                                     {{ auth()->user()->email }}
                                                                 </p>
-                                                            @endif
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="px-2 py-1">
                                                         <div class="flex-column justify-content-center">
-                                                            <p class="text-xs font-weight-bold mb-0" name="pcInfoId">{{ $pcinfo->id }}</p>
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->id }}</p>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -271,7 +267,207 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                            @else
+                                            <tr id="tr_{{$pcinfo->id}}">
+                                                <td>
+                                                    <div class="d-flex px-4 py-1">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm">{{$pcinfo->id }}
+                                                                </h6>
+                                                                <p class="text-xs text-secondary mb-0">
+                                                                    {{ $pcinfo->id }}
+                                                                </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->id }}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->ownerName }}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->orgName }}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->workplaceName }}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->positionName }}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->regNum }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->ubtzNum }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->serviceTag }}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->deviceType }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->subDevice }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->osType }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->brand }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->mark }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->cpu }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->hard }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->ram }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $pcinfo->price }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->buyedDate }}</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->comment }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->created_at }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="px-2 py-1">
+                                                        <div class="flex-column justify-content-center">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $pcinfo->updated_at }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="/computer-edit/{{ $pcinfo->id }}" class="mx-1"
+                                                        data-bs-toggle="tooltip">
+                                                        <i class="fas fa-user-edit text-secondary"></i>
+                                                    </a>
+                                                  
+                            
+                                                        <a href="javascript:void(0)" onclick="deleteInfo({{$pcinfo->id}})" class="mx-1 " 
+                                                        data-bs-toggle="tooltip">
+                                                        <i class="cursor-pointer fas fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @endif
+                                            @endforeach
+
                                     </tbody>
                                 </table>
                                 </form>
@@ -288,9 +484,10 @@
 
 <script type="text/javascript">
 
+
     function deleteInfo(id)
     {
-        if(confirm('Та үүнийг устгахдаа итгэлтэй байна уу?'))
+        if(confirm(id+'Та үүнийг устгахдаа итгэлтэй байна уу?'))
         {
 
             $.ajaxSetup({

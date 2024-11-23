@@ -16,10 +16,11 @@ class ComputerRegController extends Controller
 {
     public function showComs()
     {
-
+        $user = User::all();
         $pcinfoJson = pcInfo::all();
-
-        return view('computers',compact('pcinfoJson'));
+        $test = $user->pcInfo()->where('id', 1)->get();
+       dd($test);
+        return view('computers',compact('pcinfoJson','users'));
     }
     public function create()
     {
@@ -42,6 +43,7 @@ class ComputerRegController extends Controller
     {
 
         $request->validate([
+            'uid' => 'required|string',
             'orgName' => 'required|string',
             'positionName' => 'required|string',
             'workplaceName' => 'required|string',
@@ -65,6 +67,7 @@ class ComputerRegController extends Controller
         $pcInfo = new pcInfo();
 
         $pcInfo->fill([
+            'uid' => $request->get('uid'),
             'orgName' => $request->get('orgName'),
             'positionName' => $request->get('positionName'),
             'workplaceName' => $request->get('workplaceName'),
@@ -119,15 +122,8 @@ class ComputerRegController extends Controller
 
     public function destroy($id)
     {
-        /*
-        $pcinfo = pcinfo::find($id);
-        $pcinfo->delete();
-
-        return redirect('/computers')->with('success', 'User deleted successfully');
-        */
 
         $pcinfo = pcInfo::find($id);
-
         $pcinfo->delete();
         
         return response()->json([
@@ -136,15 +132,13 @@ class ComputerRegController extends Controller
     }
 
 
-
-
-
-
     public function showPrinters()
     {
         
         return view('printers');
     }
+
+
     public function createPrinter()
     {
 

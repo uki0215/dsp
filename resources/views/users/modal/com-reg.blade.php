@@ -22,6 +22,16 @@
                     </div>
                 @endif
                 <div class="row">
+                    <td >
+                        <div class="d-flex px-2 py-1" hidden>
+                            <div class="d-flex flex-column justify-content-center">
+                                @if (auth()->user()->name)
+                                    <input class="mb-0 text-sm" name="uid" value="{{ auth()->user()->id }} " hidden>
+                                    </h6>
+                                @endif
+                            </div>
+                        </div>
+                    </td>
                     <!-- user information and pc information register-->
                     <div class="col-md-2">
                         <div class="form-group">

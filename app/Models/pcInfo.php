@@ -30,6 +30,7 @@ class pcInfo extends Model
         'price',
         'buyedDate',
         'comment',
+        'uid'
 
     ];
 }
