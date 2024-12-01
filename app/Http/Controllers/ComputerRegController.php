@@ -8,20 +8,22 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\pcInfo;
 use Jenssegers\Agent\Facades\Agent;
-// use Response;
+use Response;
 // use Larinfo;
 use DateTime;
 
 class ComputerRegController extends Controller
 {
-    public function showComs()
+    public function showComs(Request $request)
     {
-        $user = User::all();
-        $pcinfoJson = pcInfo::all();
-        $test = $user->pcInfo()->where('id', 1)->get();
-       dd($test);
-        return view('computers',compact('pcinfoJson','users'));
+        $pcinfo = User::with('pcInfo')->get();
+        $pcinfo= json_decode($pcinfo,true);
+        dd($pcinfo);
+        //return response()->json($pcinfo);
+        //return($user);
+        return view('computers',compact('pcinfo'));
     }
+
     public function create()
     {
 
@@ -42,8 +44,7 @@ class ComputerRegController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'uid' => 'required|string',
+        $validated = $request->validate([
             'orgName' => 'required|string',
             'positionName' => 'required|string',
             'workplaceName' => 'required|string',
@@ -61,13 +62,14 @@ class ComputerRegController extends Controller
             'hard' => 'required|string',
             'price' => 'required|string',
             'buyedDate' => 'required|string',
-
           ]);
+        $validated['user_id'] = auth()->id();
 
-        $pcInfo = new pcInfo();
+auth()->user()->pcInfo()->create($validated);
+/*$pcInfo = new pcInfo();
 
         $pcInfo->fill([
-            'uid' => $request->get('uid'),
+            'user_id' => auth()->user()->id,
             'orgName' => $request->get('orgName'),
             'positionName' => $request->get('positionName'),
             'workplaceName' => $request->get('workplaceName'),
@@ -88,7 +90,7 @@ class ComputerRegController extends Controller
             'comment' => $request->get('comment'),
         ]);
 
-        $pcInfo->save();
+        $pcInfo->save();*/
 
         return redirect('/computers')->with('success', 'Created successfully computers info');   
     }

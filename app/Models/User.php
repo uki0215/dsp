@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
 use App\Models\pcInfo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -47,10 +48,12 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
     
-    public function pcinfo(): HasMany
+    public function pcInfo():HasMany
     {
         return $this->hasMany(pcInfo::class);
+
     }
 }
