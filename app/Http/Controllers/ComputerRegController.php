@@ -2,23 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\pcInfo;
 use Jenssegers\Agent\Facades\Agent;
 use Response;
 // use Larinfo;
 use DateTime;
+use DB, Auth;
 
 class ComputerRegController extends Controller
 {
     public function showComs(Request $request)
     {
         $pcinfo = User::with('pcInfo')->get();
-        $pcinfo= json_decode($pcinfo,true);
-        dd($pcinfo);
+        // $pcinfo= json_decode($pcinfo,true);
+        $isAdmin="";
+        if(auth::user()->is_admin==0){
+            $isAdmin=" and user_id=".auth::user()->id;
+        }
+        $pcinfo=DB::select("select * from pc_device_info pc, users u where pc.user_id=u.id ".$isAdmin);
+        //dd($pcinfo);
         //return response()->json($pcinfo);
         //return($user);
         return view('computers',compact('pcinfo'));
@@ -44,28 +50,34 @@ class ComputerRegController extends Controller
     public function store(Request $request)
     {
 
-        $validated = $request->validate([
-            'orgName' => 'required|string',
-            'positionName' => 'required|string',
-            'workplaceName' => 'required|string',
-            'ubtzNum' => 'required|string|unique:pc_device_info',
-            'regNum' => 'required|string|unique:pc_device_info',
-            'serviceTag' => 'required|string|unique:pc_device_info',
-            'brand' => 'required|string',
-            'mark' => 'required|string',
-            'subDevice' => 'required|string',
-            'deviceType' => 'required|string',
-            'ownerName' => 'required|string',
-            'osType' => 'required|string',
-            'cpu' => 'required|string',
-            'ram' => 'required|string',
-            'hard' => 'required|string',
-            'price' => 'required|string',
-            'buyedDate' => 'required|string',
-          ]);
-        $validated['user_id'] = auth()->id();
-
-auth()->user()->pcInfo()->create($validated);
+        try {
+            $validated = $request->validate([
+                'orgName' => 'required|string',
+                'positionName' => 'required|string',
+                'workplaceName' => 'required|string',
+                'ubtzNum' => 'required|string|unique:pc_device_info',
+                'regNum' => 'required|string|unique:pc_device_info',
+                'serviceTag' => 'required|string|unique:pc_device_info',
+                'brand' => 'required|string',
+                'mark' => 'required|string',
+                'subDevice' => 'required|string',
+                'deviceType' => 'required|string',
+                'ownerName' => 'required|string',
+                'osType' => 'required|string',
+                'cpu' => 'required|string',
+                'ram' => 'required|string',
+                'hard' => 'required|string',
+                'price' => 'required|string',
+                'buyedDate' => 'required|string',
+              ]);
+            $validated['user_id'] = auth()->id();
+            auth()->user()->pcInfo()->create($validated);
+            return redirect('/computers')->with('success', 'Created successfully computers info');   
+        } catch (\Throwable $th) {
+            // throw $th;
+            return redirect('/computers')->with('error', 'Error');   
+        }
+        
 /*$pcInfo = new pcInfo();
 
         $pcInfo->fill([
@@ -92,7 +104,7 @@ auth()->user()->pcInfo()->create($validated);
 
         $pcInfo->save();*/
 
-        return redirect('/computers')->with('success', 'Created successfully computers info');   
+        
     }
 
     public function edit($id)
