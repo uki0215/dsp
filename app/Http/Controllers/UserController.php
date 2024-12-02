@@ -12,7 +12,7 @@ use DataTables;
 class UserController extends Controller
 {
 
-    public function showUsers(Request $request)
+    public function showUsers()
     {
         $users = DB::table('users')->get();
         $count = DB::table('users')->count();
