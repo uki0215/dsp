@@ -70,15 +70,15 @@
 
 
                                         @if (auth()->user()->is_admin == 0)
-                                            @foreach ($pcInfo as $info)
-                                                <tr id="tr_{{ $info->pc_info->user_id }}">
+                                            @foreach ($pcinfo as $info)
+                                                <tr id="tr_{{ $info->user_id }}">
                                                     <td>
                                                         <div class="d-flex px-4 py-1">
                                                             <div class="d-flex flex-column justify-content-center">
-                                                                <h6 class="mb-0 text-sm">{{ $info->user->name }}
+                                                                <h6 class="mb-0 text-sm">{{ $info->name }}
                                                                 </h6>
                                                                 <p class="text-xs text-secondary mb-0">
-                                                                    {{ $info->user->email }}
+                                                                    {{ $info->email }}
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -282,7 +282,7 @@
                                             @endforeach
                                         @elseif (auth()->user()->is_admin == 1)
                                             @foreach ($pcinfo as $info)
-                                                <tr id="tr_{{ $info }}">
+                                            <tr id="tr_{{ $info->user_id }}">
                                                     <td>
                                                         <div class="d-flex px-4 py-1">
                                                             <div class="d-flex flex-column justify-content-center">
@@ -306,7 +306,7 @@
                                                         <div class="px-2 py-1">
                                                             <div class="flex-column justify-content-center">
                                                                 <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info }}</p>
+                                                                    {{ $info->ownerName }}</p>
                                                             </div>
                                                         </div>
                                                     </td>

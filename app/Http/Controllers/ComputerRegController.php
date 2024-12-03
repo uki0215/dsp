@@ -9,7 +9,6 @@ use App\Models\User;
 use App\Models\pcInfo;
 use Jenssegers\Agent\Facades\Agent;
 use Response;
-// use Larinfo;
 use DateTime;
 
 class ComputerRegController extends Controller
@@ -17,8 +16,13 @@ class ComputerRegController extends Controller
     public function showComs(Request $request)
     {
         $pcinfo = User::with('pcInfo')->get();
-        $pcinfo= json_decode($pcinfo,true);
-        dd($pcinfo);
+        //$isAdmin="";
+        //auth::user()->is_admin==1;
+        //$isAdmin=" and user_id=".auth::user()->id;
+        
+        $pcinfo=DB::select("select * from pc_device_info pc, users u where pc.user_id=u.id ");
+        //$pcinfo= json_decode($pcinfo,true);
+        //dd($pcinfo);
         //return response()->json($pcinfo);
         //return($user);
         return view('computers',compact('pcinfo'));
