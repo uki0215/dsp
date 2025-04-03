@@ -3,21 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Organization;
 use Illuminate\Support\Facades\Hash;
 use DataTables;
+<<<<<<< HEAD
+use DB, Auth;
 
+=======
+use Auth;
+>>>>>>> 654ad08cbccd15f3536e7e4c1c4185f9b71b8dbf
 class UserController extends Controller
 {
 
     public function showUsers()
     {
+        if(Auth::user()->is_admin==0){
+            return back();
+        }else{
         $users = DB::table('users')->get();
         $count = DB::table('users')->count();
 
-        return view('users.user-management',['users' => $users])->with('count', $count);
+        return view('users.user-management',['users' => $users])->with('count', $count);}
     }
 
     public function create()
@@ -64,7 +71,7 @@ class UserController extends Controller
         $workplaceName = DB::table('workplace')->get();
         $orgName = DB::table('organizations')->get();
         $positionName = DB::table('position')->get();
-
+        // return response($user);
         return view('users.modal.edit-user',compact('user','positionName','orgName','workplaceName'));
     }
 
@@ -90,7 +97,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ])->save();
-
+            
         return redirect('/users')->with('success', 'User updated successfully');
     }
 

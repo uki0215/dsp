@@ -36,12 +36,11 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.jqueryui.css">
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="{{ asset('/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+    <link id="pagestyle" href="{{ asset('/assets/css/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
-
+    @yield('subcss')
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -58,13 +57,13 @@
             <p class="m-0">{{ session('success') }}</p>
         </div>
     @endif
-    <!--   Core JS Files   -->
+    <!--   Core JS Files    -->
     <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="{{ asset('/assets/js/core/bootstrap.min.js') }}"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/fullcalendar.min.js"></script>
-    <script src="../assets/js/plugins/chartjs.min.js"></script>
+    {{-- <script src="../assets/js/plugins/fullcalendar.min.js"></script> --}}
+    {{-- <script src="../assets/js/plugins/chartjs.min.js"></script> --}}
     @stack('dashboard')
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -79,14 +78,50 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
-    <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    {{-- <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script> --}}
 
 
+        <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 </body>
+<script>
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    });
+
+    function callDT(a) {
+        table = $('#' + a).DataTable({
+            "language": {
+                "paginate": {
+                    "previous": "Өмнөх",
+                    "next": "Дараах",
+                },
+                "sSearch": "Хайлт: ",
+                "lengthMenu": "_MENU_ -н бичлэг",
+                "emptyTable": "Бичлэг хоосон байна.",
+                "zeroRecords": "Бичлэг олдсонгүй."
+            },
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": false,
+            "info": false,
+            "order": [
+                [1, "desc"]
+            ],
+            "autoWidth": true,
+            "select": true,
+        });
+    }
+</script>
+{{-- @yield('subjs') --}}
+
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
     })
-</script>
-
+    </script>
 </html>
