@@ -17,35 +17,24 @@ class ComputerRegController extends Controller
     public function showComs(Request $request)
     {
         $pcinfo = User::with('pcInfo')->get();
-<<<<<<< HEAD
+
         //$pcinfo= json_decode($pcinfo,true);
-=======
-<<<<<<< HEAD
-        //$isAdmin="";
-        //auth::user()->is_admin==1;
-        //$isAdmin=" and user_id=".auth::user()->id;
+        $isAdmin="";
+        auth::user()->is_admin==1;
+        $isAdmin=" and user_id=".auth::user()->id;
         
         $pcinfo=DB::select("select * from pc_device_info pc, users u where pc.user_id=u.id ");
-        //$pcinfo= json_decode($pcinfo,true);
-=======
-        // $pcinfo= json_decode($pcinfo,true);
         $isAdmin="";
         if(auth::user()->is_admin==0){
             $isAdmin=" and user_id=".auth::user()->id;
         }
         $pcinfo=DB::select("select * from pc_device_info pc, users u where pc.user_id=u.id ".$isAdmin);
->>>>>>> 654ad08cbccd15f3536e7e4c1c4185f9b71b8dbf
->>>>>>> refs/remotes/origin/master
-        //dd($pcinfo);
-        //return response()->json($pcinfo);
         return view('computers',compact('pcinfo'));
     }
 
     public function create()
     {
-
-        $date = now();
-        
+        $date = now();   
         $orgName = DB::table('organizations')->get();
         $workplaceName = DB::table('workplace')->get();
         $positionName = DB::table('position')->get();
@@ -55,12 +44,10 @@ class ComputerRegController extends Controller
         $device_mark = DB::table('device_marks')->get();
 
         return view('users.modal.com-reg',compact('orgName','workplaceName','positionName','brandName','device_type','date','sub_device','device_mark'));
-
     }
 
     public function store(Request $request)
     {
-
         try {
             $validated = $request->validate([
                 'orgName' => 'required|string',
@@ -137,25 +124,17 @@ class ComputerRegController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $pcinfo = pcinfo::find($id);
         $pcinfo->update($request->all());
-
         return redirect('/computers')->with('success', 'User updated successfully');
     }
-
-
     public function destroy($id)
     {
-
         $pcinfo = pcInfo::find($id);
         $pcinfo->delete();
         
-        return response()->json([
-            'success'=>true, 'tr'=>'tr_'.$id,
-        ]);
+        return redirect('/computers')->with('success', 'User deleted successfully');
     }
-
 
     public function showPrinters()
     {

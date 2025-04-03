@@ -7,12 +7,8 @@ use App\Models\User;
 use App\Models\Organization;
 use Illuminate\Support\Facades\Hash;
 use DataTables;
-<<<<<<< HEAD
 use DB, Auth;
 
-=======
-use Auth;
->>>>>>> 654ad08cbccd15f3536e7e4c1c4185f9b71b8dbf
 class UserController extends Controller
 {
 

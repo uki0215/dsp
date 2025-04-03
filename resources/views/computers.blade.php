@@ -67,227 +67,11 @@
                                     </thead>
 
                                     <tbody>
-                                        @if (!empty($pcinfo))
-                                            @foreach ($pcinfo as $info)
-                                                <tr id="tr_{{ $info->user_id }}">
-                                                    <td>
-                                                        <div class="d-flex px-4 py-1">
-                                                            <div class="d-flex flex-column justify-content-center">
-                                                                <h6 class="mb-0 text-sm">{{ $info->name }}
-                                                                </h6>
-                                                                <p class="text-xs text-secondary mb-0">
-                                                                    {{ $info->email }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->id }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->ownerName }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->orgName }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->workplaceName }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->positionName }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->regNum }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->ubtzNum }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->serviceTag }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->deviceType }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->subDevice }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->osType }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->brand }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->mark }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->cpu }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->hard }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->ram }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->price }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->buyedDate }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->comment }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->created_at }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <div class="px-2 py-1">
-                                                            <div class="flex-column justify-content-center">
-                                                                <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info->updated_at }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a href="/computer-edit/{{ $info->user_id }}" class="mx-1"
-                                                            data-bs-toggle="tooltip">
-                                                            <i class="fas fa-user-edit text-secondary"></i>
-                                                        </a>
 
 
-<<<<<<< HEAD
                                         @if (auth()->user()->is_admin == 0)
                                             @foreach ($pcinfo as $info)
                                                 <tr id="tr_{{ $info->user_id }}">
-=======
-                                                        <a href="javascript:void(0)"
-                                                            onclick="deleteInfo({{ $info->user_id }})" class="mx-1 "
-                                                            data-bs-toggle="tooltip">
-                                                            <i class="cursor-pointer fas fa-trash"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        @endif
-                                        {{-- @if (auth()->user()->is_admin == 0)
-                                            @foreach ($pcInfo as $info)
-                                                <tr id="tr_{{ $info->pc_info->user_id }}">
->>>>>>> 654ad08cbccd15f3536e7e4c1c4185f9b71b8dbf
                                                     <td>
                                                         <div class="d-flex px-4 py-1">
                                                             <div class="d-flex flex-column justify-content-center">
@@ -498,7 +282,7 @@
                                             @endforeach
                                         @elseif (auth()->user()->is_admin == 1)
                                             @foreach ($pcinfo as $info)
-                                            <tr id="tr_{{ $info->user_id }}">
+                                                <tr id="tr_{{ $info->user_id }}">
                                                     <td>
                                                         <div class="d-flex px-4 py-1">
                                                             <div class="d-flex flex-column justify-content-center">
@@ -522,11 +306,7 @@
                                                         <div class="px-2 py-1">
                                                             <div class="flex-column justify-content-center">
                                                                 <p class="text-xs font-weight-bold mb-0">
-<<<<<<< HEAD
-                                                                    {{ $info->id }}</p>
-=======
                                                                     {{ $info->ownerName }}</p>
->>>>>>> refs/remotes/origin/master
                                                             </div>
                                                         </div>
                                                     </td>
@@ -711,7 +491,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                        @endif --}}
+                                        @endif
 
                                     </tbody>
                                 </table>
