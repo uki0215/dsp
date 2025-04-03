@@ -56,7 +56,7 @@ Route::get('/login', [AuthController::class, 'login']);
 	Route::post('/user-profile', [InfoUserController::class, 'store']);
 
 	Route::get('/users', [UserController::class, 'showUsers'])->name('users');
-		//create user controller 
+//create user controller 
 	Route::get('/create-user', [UserController::class, 'create'])->name('create-user');
 	Route::post('/create-user', [UserController::class, 'store'])->name('store-user');
 //update user controller 

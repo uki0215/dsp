@@ -17,10 +17,9 @@ class ComputerRegController extends Controller
     public function showComs(Request $request)
     {
         $pcinfo = User::with('pcInfo')->get();
-        $pcinfo= json_decode($pcinfo,true);
-        dd($pcinfo);
+        //$pcinfo= json_decode($pcinfo,true);
+        //dd($pcinfo);
         //return response()->json($pcinfo);
-        //return($user);
         return view('computers',compact('pcinfo'));
     }
 

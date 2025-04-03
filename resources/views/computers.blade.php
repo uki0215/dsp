@@ -306,7 +306,7 @@
                                                         <div class="px-2 py-1">
                                                             <div class="flex-column justify-content-center">
                                                                 <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $info }}</p>
+                                                                    {{ $info->id }}</p>
                                                             </div>
                                                         </div>
                                                     </td>
